@@ -1,7 +1,16 @@
+/*
+ * @Author: Fanner
+ * @Date: 2021-11-11 03:17:35
+ * @LastEditors: Fanner
+ * @LastEditTime: 2021-11-11 03:38:01
+ * @Description: 
+ * @FilePath: \spacingjs\webpack.config.js
+ */
 const webpack = require("webpack");
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const { version } = require("./package.json");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 /**
  * @type {webpack.Configuration}
@@ -38,12 +47,15 @@ module.exports = {
         },
         extractComments: false,
       }),
+	  new UglifyJsPlugin({
+		parallel: true
+	})
     ],
   },
   plugins: [
     new webpack.BannerPlugin({
       banner: `/*!\n * Spacing.js v${version}\n * Copyright (c) 2021 Steven Lei\n * Released under the MIT License.\n*/`,
       raw: true,
-    }),
+    })
   ],
 };
