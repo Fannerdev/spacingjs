@@ -1,11 +1,3 @@
-/*
- * @Author: Stevenlei
- * @Date: 2021-11-11 03:17:35
- * @LastEditors: Fanner
- * @LastEditTime: 2021-11-11 03:44:43
- * @Description: 
- * @FilePath: \spacingjs\webpack.config.js
- */
 const webpack = require("webpack");
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
